@@ -113,7 +113,14 @@ input[type="submit"]{
 .ul_links ul li a{
     color: #73879C !important;
 }
-
+.logo{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+   
+}
 
 .companyListDiv{
     margin: 20px 0px 0px 38px;
