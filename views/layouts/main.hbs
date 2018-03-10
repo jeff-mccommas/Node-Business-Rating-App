@@ -1,15 +1,17 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link rel="shortcut icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Righteous|Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="/css/style.css">
+   <!-- Custom CSS -->
+    <link href="/css/simple.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+    <link href="/css/chat.css" rel="stylesheet">
 
 
 
@@ -18,13 +20,31 @@
 
     <title>Node Business Rating App</title>
 </head>
+{{{header}}}
+
 
 <body>
-    {{#unless dashboard}}
-        {{>header}}
-    {{/unless}}
-    {{{body}}}
-
+    <div id="wrapper">
+    <div id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <a href="/">RateMe2</a>
+        </div>
+</div>
+{{body}}
 </body>
+<script src="/js/rating.js"></script>
+<script src="/js/jquery.raty.js"></script>
 
+
+<script>
+$(document).ready(function() {
+   $.fn.raty.defaults.path = '/images/';
+   $('.star').raty({
+       readOnly : true,
+       score: function(data){
+            return $(this).attr('data-score');
+       }
+    });
+});    
+</script>
 </html>
